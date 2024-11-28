@@ -26,7 +26,10 @@ end
 % Display results
 if error <= tol
     disp(['Solution converged in ', num2str(k - 1), ' iterations.']);
-    disp(['Root is: P1 (x) = ', num2str(P(1)), ', P2 (y) = ', num2str(P(2))]);
+    disp(['Root is: P1 (x) = ', num2str(P(1)), ', P2 (y) = ', num2str(P(2))]);        
+%P(2) is the second index of the vector P where we are storing the repeatedly iterating roots.
+%Why Use num2str?
+%MATLAB does not allow direct concatenation of strings and numeric values. Using num2str, you convert the numeric value into a string that can be combined with other text for clear output formatting.
 else
     disp(['Solution did not converge within ', num2str(N), ' iterations.']);
 end
