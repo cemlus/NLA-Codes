@@ -29,3 +29,31 @@ for k=n-1:-1:1
 end
 disp(x)
 
+% -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+format long
+Info = [6 3 2; 6 4 3; 20 15 12]; % Given Matrix A
+b = [6; 0; 0]; % R.H.S. of the system of equations
+A = [Info b]; % Write Augmented matrix A|b
+
+% Forward elimination
+for i = 1:size(A, 1)
+    for j = i + 1:size(A, 1)
+        key1 = A(j, i) / A(i, i); % Find Pivot key element
+        A(j, :) = A(j, :) - key1 * A(i, :); % Apply elementary row operations
+    end
+end
+
+% Back substitution
+n = size(A, 1); % Number of equations
+x = zeros(n, 1); % Initialize solution vector
+
+% Start back substitution from the last row
+for i = n:-1:1
+    x(i) = (A(i, end) - A(i, 1:end-1) * x) / A(i, i); % Calculate each variable
+end
+
+% Display the solution
+disp('Solution:');
+disp(x);
+ gauss elimination
