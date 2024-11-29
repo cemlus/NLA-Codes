@@ -1,5 +1,6 @@
 clc
 clear all
+% Define a sample matrix
 A = [1 3; 2 2];
 
 % Set parameters
@@ -40,3 +41,4 @@ function [eigenvalues] = qr_algorith(A, max_iter, tol)
     disp(eigenvalues);
     fprintf('Number of iterations: %d\n', iter);
 end
+ qr algorithm
